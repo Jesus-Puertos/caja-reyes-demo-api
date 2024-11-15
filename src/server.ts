@@ -26,7 +26,7 @@ const server = express()
 // Permitir conexiones
 const corsOptions : CorsOptions = {
     origin: function(origin, callback) {
-        if(origin === process.env.FRONTEND_URL) {
+        if(origin === process.env.FRONTEND_URL, 4000) {
             callback(null, true)
         } else {
             callback(new Error('Error de CORS')) 
@@ -40,7 +40,7 @@ server.use(express.json())
 
 server.use(morgan('dev'))
 
-server.use('/api/products', router)
+server.use('/api/socios', router)
 
 // Docs
 server.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, swaggerUiOptions) )
